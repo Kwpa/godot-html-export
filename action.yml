@@ -42,6 +42,7 @@ runs:
         wget -q https://downloads.tuxfamily.org/godotengine/${{ inputs.godot-version }}/Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         mkdir ~/.cache
         mkdir -p ~/.config/godot
+        chmod +rwx ~/.config/godot
         mkdir -p ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
         unzip Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip
         mv Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip /usr/local/bin/godot
