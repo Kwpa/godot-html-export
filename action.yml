@@ -54,7 +54,7 @@ runs:
         echo Test 3
         sudo chmod +x Godot_v${{ inputs.godot-version }}-stable_linux.x86_64
         echo Test 4
-        godot --version
+        Godot_v4.0.3-stable_linux.x86_64 --version
         echo Test 5
         godot --headless -e -q
         echo Test 6
