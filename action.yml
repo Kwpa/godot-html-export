@@ -56,7 +56,7 @@ runs:
         echo Test 4
         chmod +rwx Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.exe
         echo Test 5
-        godot -headless -e -q
+        godot --headless -e -q
         echo Test 6
     - name: Create export presets config
       if: ${{ inputs.create-export-preset-cfg  == 'true' }}
