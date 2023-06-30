@@ -54,15 +54,16 @@ runs:
         echo Test 3
         sudo chmod +x Godot_v${{ inputs.godot-version }}-stable_linux.x86_64
         echo Test 4
-        Godot_v4.0.3-stable_linux.x86_64 --version
-        echo Test 5
-        godot --headless -e -q
-        echo Test 6
     - name: Create export presets config
       if: ${{ inputs.create-export-preset-cfg  == 'true' }}
       shell: bash
-      run: cp ${{ github.action_path }}/export_presets.cfg ${{ inputs.working-directory }}/export_presets.cfg
+      run: |
+        echo Test 5
+        cp ${{ github.action_path }}/export_presets.cfg ${{ inputs.working-directory }}/export_presets.cfg
 
     - name: Export
       shell: bash
-      run: godot --path ${{ inputs.working-directory }} --export --headless HTML5 ../html5/index.html
+      run: |
+        echo Test 6
+        godot --path ${{ inputs.working-directory }} --export --headless HTML5 ../html5/index.html
+        echo Test 7
