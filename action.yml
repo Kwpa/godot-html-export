@@ -54,6 +54,7 @@ runs:
         echo Test 3 
         ls
         echo Test 4
+        chmod +rwx Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.exe
         echo Test 5
         godot -headless -e -q
         echo Test 6
