@@ -43,25 +43,21 @@ runs:
         mkdir ~/.cache
         mkdir -p ~/.config/godot
         mkdir -p ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
-        unzip Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip
-        echo Test 1
-        chmod +rwx /usr/local/bin/godot
-        mv Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip /usr/local/bin/godot
+        unzip Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip 
+        mv Godot_v${{ inputs.godot-version }}-stable_linux.x86_64 /usr/local/bin/godot
         unzip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         mv templates/* ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
-        echo Test 2
         rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
-        echo Test 3
     - name: Create export presets config
       if: ${{ inputs.create-export-preset-cfg  == 'true' }}
       shell: bash
       run: |
-        echo Test 4
+        echo Test 1
         cp ${{ github.action_path }}/export_presets.cfg ${{ inputs.working-directory }}/export_presets.cfg
-        echo Test 5
+        echo Test 2
     - name: Export
       shell: bash
       run: |
-        echo Test 6
+        echo Test 3
         godot --path ${{ inputs.working-directory }} --export --headless HTML5 ../html5/index.html
-        echo Test 7
+        echo Test 4
