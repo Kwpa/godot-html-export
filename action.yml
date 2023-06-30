@@ -42,28 +42,26 @@ runs:
         wget -q https://downloads.tuxfamily.org/godotengine/${{ inputs.godot-version }}/Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         mkdir ~/.cache
         mkdir -p ~/.config/godot
-        chmod +rwx ~/.config/godot
         mkdir -p ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
         unzip Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip
         echo Test 1
+        chmod +rwx /usr/local/bin/godot
         mv Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip /usr/local/bin/godot
         unzip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         mv templates/* ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
         echo Test 2
         rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         echo Test 3
-        sudo chmod +x Godot_v${{ inputs.godot-version }}-stable_linux.x86_64
-        echo Test 4
     - name: Create export presets config
       if: ${{ inputs.create-export-preset-cfg  == 'true' }}
       shell: bash
       run: |
-        echo Test 5
+        echo Test 4
         cp ${{ github.action_path }}/export_presets.cfg ${{ inputs.working-directory }}/export_presets.cfg
-
+        echo Test 5
     - name: Export
       shell: bash
       run: |
         echo Test 6
-        sudo godot --path ${{ inputs.working-directory }} --export --headless HTML5 ../html5/index.html
+        godot --path ${{ inputs.working-directory }} --export --headless HTML5 ../html5/index.html
         echo Test 7
