@@ -52,11 +52,11 @@ runs:
         echo Test 2
         rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         echo Test 3 
-        chmod +rwx /usr/local/bin/godot/Godot_v4.0.3-stable_win64.exe
-        chmod +rwx /usr/local/bin/godot/Godot_v4.0.3-stable_win64_console.exe
-        godot -e -q
+        ls /usr/local/bin/godot/
         echo Test 4
-
+        echo Test 5
+        godot -headless -e -q
+        echo Test 6
     - name: Create export presets config
       if: ${{ inputs.create-export-preset-cfg  == 'true' }}
       shell: bash
