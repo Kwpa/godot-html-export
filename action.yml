@@ -45,11 +45,15 @@ runs:
         chmod +rwx ~/.config/godot
         mkdir -p ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
         unzip Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip
+        echo Test 1
         mv Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip /usr/local/bin/godot
         unzip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         mv templates/* ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
+        echo Test 2
         rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
+        echo Test 3 
         godot -e -q
+        echo Test 4
 
     - name: Create export presets config
       if: ${{ inputs.create-export-preset-cfg  == 'true' }}
