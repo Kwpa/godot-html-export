@@ -66,8 +66,12 @@ runs:
       run: |
         echo Test 3
         #!/usr/local/bin/godot -v --headless --path ${{ inputs.working-directory }} --export-release "HTML" ./html5/index.html
-        echo Test 4
+        echo Test 4.1:
         ls
+        echo Test 4.2:
         cd html5
+        echo Test 4.3:
         ls
+        echo Test 4.4:
+        ls -d */
         cd ..
