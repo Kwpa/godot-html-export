@@ -68,6 +68,6 @@ runs:
         #!/usr/local/bin/godot -v --headless --path ${{ inputs.working-directory }} --export-release "HTML" ./html5/index.html
         echo Test 4
         ls
-        cd html
+        cd html5
         ls
         cd ..
