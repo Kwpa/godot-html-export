@@ -69,3 +69,5 @@ runs:
         echo Test 4
         ls
         cd html
+        ls
+        cd ..
