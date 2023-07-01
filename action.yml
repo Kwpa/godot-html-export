@@ -65,5 +65,5 @@ runs:
       shell: bash
       run: |
         echo Test 3
-        #!/usr/local/bin/godot --path ${{ inputs.working-directory }} --export-debug --headless "HTML" "../html5/index.html" -v
+        #!/usr/local/bin/godot -e -q --headless --path ${{ inputs.working-directory }} --export-debug "HTML" "../html5/index.html"
         echo Test 4
