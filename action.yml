@@ -69,5 +69,8 @@ runs:
         sudo apt install libxrandr-dev
         sudo apt install libxi6
         sudo apt install libgl1
-        godot --headless --verbose --path ${{ inputs.working-directory }} --export-debug 'HTML5' ../html5/index.html
+        godot --path ${{ inputs.working-directory }} --export-debug 'HTML5' ../html5/index.html
+        cd ${{ inputs.working-directory }}
+        cd html5
+        ls
         echo Test 4
