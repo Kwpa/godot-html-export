@@ -34,7 +34,6 @@ runs:
         key: ${{ runner.os }}-godot-${{ inputs.godot-version }}
 
     - name: Download and config Godot Engine linux server and templates
-      if: steps.cache-godot.outputs.cache-hit != 'true'
       shell: bash
       run: |
         echo Test 1.0
@@ -69,7 +68,8 @@ runs:
         sudo apt install libxrandr-dev
         sudo apt install libxi6
         sudo apt install libgl1
-        godot --path ${{ inputs.working-directory }} --export-debug 'HTML5' ../html5/index.html
+        export DISPLAY=":0"
+        godot --headless --path ${{ inputs.working-directory }} --export-debug 'HTML5' ../html5/index.html
         cd ${{ inputs.working-directory }}
         cd html5
         ls
