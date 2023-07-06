@@ -48,6 +48,11 @@ runs:
         mv templates/* ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
         rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         echo Test 1.1
+        sudo apt install libxcursor-dev
+        sudo apt install libxinerama-dev
+        sudo apt install libxrandr-dev
+        sudo apt install libxi6
+        sudo apt install libgl1
         export DISPLAY=":0"
         godot --version
         echo Test 1.2
@@ -64,12 +69,6 @@ runs:
       shell: bash
       run: |
         echo Test 3
-        sudo apt install libxcursor-dev
-        sudo apt install libxinerama-dev
-        sudo apt install libxrandr-dev
-        sudo apt install libxi6
-        sudo apt install libgl1
-        export DISPLAY=":0"
         godot --headless --path ${{ inputs.working-directory }} --export-debug 'HTML5' ../html5/index.html
         cd ${{ inputs.working-directory }}
         cd html5
