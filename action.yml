@@ -68,8 +68,7 @@ runs:
       shell: bash
       run: |
         echo Test 3
-        godot --headless --path ${{ inputs.working-directory }} --export-debug 'HTML5' ../html5/index.html
-        cd ${{ inputs.working-directory }}
+        godot --headless --path ${{ inputs.working-directory }} --export-debug "Web" ../html5/index.html
         cd html5
         ls
         echo Test 4
