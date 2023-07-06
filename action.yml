@@ -46,6 +46,10 @@ runs:
         mv Godot_v${{ inputs.godot-version }}-stable_linux.x86_64 /usr/local/bin/godot
         unzip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         mv templates/* ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
+        echo Test 1.0.1
+        cd ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
+        ls 
+        echo Test 1.0.2
         rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         echo Test 1.1
         sudo apt install libxcursor-dev
