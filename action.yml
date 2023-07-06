@@ -34,6 +34,7 @@ runs:
         key: ${{ runner.os }}-godot-${{ inputs.godot-version }}
 
     - name: Download and config Godot Engine linux server and templates
+      if: steps.cache-godot.outputs.cache-hit != 'true'
       shell: bash
       run: |
         echo Test 1.0
