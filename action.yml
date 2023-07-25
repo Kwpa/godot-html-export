@@ -18,7 +18,7 @@ inputs:
   godot-version:
     description: 'Godot Engine version. Supported are 3.x and 4.x'
     required: false
-    default: '4.1.1'
+    default: '3.5.2'
   
 runs:
   using: "composite"
