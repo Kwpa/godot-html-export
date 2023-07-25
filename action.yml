@@ -37,8 +37,8 @@ runs:
     - name: Define URL_SUFFIX
       shell: bash
       run: |
-        [[ "3" = ${{ inputs.godot-version }}* ]] && echo "URL_SUFFIX=-stable_linux_headless.64.zip" >> $GITHUB_ENV
-        [[ "4" = ${{ inputs.godot-version }}* ]] && echo "URL_SUFFIX=-stable_linux.x86_64.zip" >> $GITHUB_ENV
+        [[ ${{ inputs.godot-version }} == 3* ]] && echo "URL_SUFFIX=-stable_linux_headless.64.zip" >> $GITHUB_ENV
+        [[ ${{ inputs.godot-version }} == 4* ]] && echo "URL_SUFFIX=-stable_linux.x86_64.zip" >> $GITHUB_ENV
 
 
     - name: Download and config Godot Engine headless linux server and templates
