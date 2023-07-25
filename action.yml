@@ -39,6 +39,8 @@ runs:
       run: |
         [[ ${{ inputs.godot-version }} == 3* ]] && echo "URL_SUFFIX=-stable_linux_headless.64.zip" >> $GITHUB_ENV
         [[ ${{ inputs.godot-version }} == 4* ]] && echo "URL_SUFFIX=-stable_linux.x86_64.zip" >> $GITHUB_ENV
+        echo $URL_SUFFIX
+        echo "fi"
 
 
     - name: Download and config Godot Engine headless linux server and templates
