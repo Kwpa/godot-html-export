@@ -19,6 +19,10 @@ inputs:
     description: 'Godot Engine version. Supported are 3.x and 4.x'
     required: false
     default: '3.5.2'
+  build-folder-name:
+    description: 'name of the build folder'
+    required: false
+    default: 'html5'
   
 runs:
   using: "composite"
@@ -71,7 +75,7 @@ runs:
     - name: Export
       if: startsWith(inputs.godot-version, '3')
       shell: bash
-      run: godot --path ${{ inputs.working-directory }} --export HTML5 ../html5/index.html
+      run: godot --path ${{ inputs.working-directory }} --export HTML5 ../${{ inputs.build-folder-name }}/index.html
 
 
     ########################
@@ -80,4 +84,4 @@ runs:
     - name: Export
       if: startsWith(inputs.godot-version, '4')
       shell: bash
-      run: godot --headless --path ${{ inputs.working-directory }} --export-release Web ../html5/index.html
+      run: godot --headless --path ${{ inputs.working-directory }} --export-release Web ../${{ inputs.build-folder-name }}/index.html
